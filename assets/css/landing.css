@@ -3,3 +3,10 @@
     width : 380px;
     object-fit: cover
 }
+
+
+@media screen and (max-width : 600px){
+    .catalog-btn-container{     
+        justify-content: center;
+    }
+}

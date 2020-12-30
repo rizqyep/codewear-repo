@@ -13,8 +13,24 @@ class User {
         while($row = $users->fetch_assoc()){
             array_push($usersArray, $row);
         }
-
+        $conn->close();
         return $usersArray;
+    }
+
+    public static function create($user){
+        global $conn;
+  
+        $name = $user['name'];
+        $email = $user['email'];
+        $password = $user['password'];
+        $role = 'user';
+        $sql = "INSERT INTO users (name, email, password, role) VALUES('$name', '$email', '$password', '$role')";
+        if($conn->query($sql)){
+            return "Success";
+        }
+        else{
+            return "Fail";
+        }
     }
 }
 
