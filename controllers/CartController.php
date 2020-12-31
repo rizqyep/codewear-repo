@@ -15,9 +15,9 @@ function addToCart($item_id, $quantity){
         header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
     }
     else{
-        // $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
-        // $_SESSION['flash_fail']['title'] = 'Failed';
-        // header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
+        $_SESSION['flash_fail']['title'] = 'Failed';
+        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
     }
 }
 
@@ -36,10 +36,10 @@ function updateCart($item_id, $quantity){
         header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
     }
     else{
-        echo('fail');
-    //     $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
-    //     $_SESSION['flash_fail']['title'] = 'Failed';
-    //     header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+     
+        $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
+        $_SESSION['flash_fail']['title'] = 'Failed';
+        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
      }
 }
 

@@ -37,7 +37,8 @@ include "./includes.php";
                         <p class="font-weight-bold orange-text"><?php echo $product['price'];?></p>
 
                         <a href="product_detail.php?id=<?php echo $product['id'];?>"
-                            class="btn elegant-color font-weight-bold w-100 mx-0 text-white"></a>
+                            class="btn elegant-color font-weight-bold w-100 mx-0 text-white">
+                            See Details</a>
                     </div>
                 </div>
             </div>

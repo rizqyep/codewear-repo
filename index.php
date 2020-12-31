@@ -7,6 +7,7 @@ include "./includes.php";
 <head>
     <?php 
         $title = "Home Page";
+        require_once('./models/Cart.php');
         include "./partials/header.php"; 
     ?>
 
@@ -40,7 +41,7 @@ include "./includes.php";
 
 
                 <div class="d-none d-md-flex ">
-                    <a href="products" class="btn mx-0 elegant-color text-white font-weight-bold">
+                    <a href="products.php" class="btn mx-0 elegant-color text-white font-weight-bold">
                         Explore Catalog
                     </a>
                 </div>

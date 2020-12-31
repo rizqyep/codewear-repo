@@ -45,7 +45,7 @@ include "./includes.php";
                             <input type="hidden" name="item_id" value="<?php echo $product['id'];?>">
                             <div class="form-group col-3 px-0">
                                 <label for="quantity">Quantity</label>
-                                <input type="number" name="quantity" id="quantity" class="form-control">
+                                <input type="number" value="1" name="quantity" id="quantity" class="form-control">
                             </div>
                             <button class="btn btn-success w-100 mx-0 text-white font-weight-bold">Add To Cart</button>
                         </form>

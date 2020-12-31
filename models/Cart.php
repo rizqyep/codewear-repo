@@ -6,7 +6,7 @@ class Cart{
     
     public static function getAll($user_id){
         global $conn;
-        $sql = "SELECT name, price, quantity,image FROM carts JOIN products on products.id = carts.item_id WHERE user_id = '$user_id'";
+        $sql = "SELECT carts.id, name, price, quantity,image FROM carts JOIN products on products.id = carts.item_id WHERE user_id = '$user_id'";
         $carts= $conn->query($sql);
         
         $cartsArray = array();
@@ -72,10 +72,28 @@ class Cart{
     public static function count($user_id){
         global $conn;
 
-        $sql = "SELECT * FROM carts WHERE user_id = '$user_id' ";
+        $sql = "SELECT * FROM carts WHERE user_id = '$user_id'";
         $count = $conn->query($sql)->num_rows;
+        
+        if($count > 0){
+            return $count;
+        }
+        else{
+            return 0;
+        }
+    }
 
-        return $count;
+    public static function delete($user_id, $cart_id){
+        global $conn;
+        $sql = "DELETE FROM carts WHERE user_id = '$user_id'AND id = '$cart_id'";
+        if($conn->query($sql))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 

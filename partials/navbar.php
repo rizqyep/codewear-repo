@@ -37,9 +37,13 @@
                 <a href="http://localhost/CodeWear/carts.php" class="nav-link">
                     <span class="icon-holder">
                         <i class="fas fa-shopping-cart cart-icon"></i>
-                        <span class="icon-count">
 
-                            <?php echo Cart::count($_SESSION['user']['id']);?>
+                        <span class="icon-count">
+                            <?php
+                            include "./config/database.php";
+                            $user_id = $_SESSION['user']['id'];
+                            $cartCount = $conn->query("SELECT * FROM carts where user_id = '$user_id'")->num_rows;
+                            echo $cartCount;?>
                         </span>
                     </span>
                     <span class="d-md-none">Carts</span>
@@ -73,4 +77,3 @@
     <!-- Collapsible content -->
 
 </nav>
-<!--/.Navbar-->

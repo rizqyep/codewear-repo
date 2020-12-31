@@ -29,6 +29,75 @@ class Product{
         return $product;
 
     }
+
+    public static function create($data){
+        global $conn;
+
+        $name = $data['name'];
+        $price = $data['price'];
+        $description = $data['description'];
+        $image = $data['image'];
+
+        $sql = "INSERT INTO products (name, price, image, description) VALUES ('$name', '$price', '$image', '$description')";
+        if($conn->query($sql)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public static function update($data){
+        global $conn;
+        
+        if($data['image'] != NULL){
+            $name = $data['name'];
+            $price = $data['price'];
+            $description = $data['description'];
+            $image = $data['image'];
+            $id = $data['id'];
+
+            $sql = "UPDATE products SET name = '$name', price = '$price', image = '$image', description = '$description' WHERE id = '$id'";
+       
+        } else{
+            $name = $data['name'];
+            $price = $data['price'];
+            $description = $data['description'];
+            $id = $data['id'];
+
+            $sql = "UPDATE products SET name = '$name', price = '$price', description = '$description' WHERE id = '$id'";
+       
+        }
+
+        if($conn->query($sql)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static function count(){
+        global $conn;
+
+        $sql = "SELECT * FROM products";
+        $count = $conn->query($sql)->num_rows;
+
+        return $count;
+    }
+
+    public static function delete($id){
+        global $conn;
+
+        $sql = "DELETE FROM products WHERE id = '$id'";
+        if($conn->query($sql)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
 
