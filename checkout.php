@@ -11,6 +11,11 @@ include "./includes.php";
         
         $carts = Cart::getAll($_SESSION['user']['id']);
         $total = 0;
+
+        require_once("./models/Address.php");
+        $addresses = Address::getAll($_SESSION['user']['id']);
+
+
         
     ?>
 
@@ -25,6 +30,56 @@ include "./includes.php";
 
     ?>
 
+    <!-- Address Modal -->
+    <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header elegant-color text-white">
+                    <h5 class="modal-title font-weight-bold" id="addressModalLabel">Add New Address</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+
+                <form action="./controllers/AddressController.php" method="POST">
+                    <div class="modal-body">
+                        <input type="hidden" name="createOnCheckout">
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="name">Address Name</label>
+                            <p class="small text-muted">eg : Home , Office</p>
+                            <input class="form-control" type="text" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="province">Province</label>
+                            <input class="form-control" type="text" name="province" id="province" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="city">City</label>
+                            <input class="form-control" type="text" name="city" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="district">District</label>
+                            <input class="form-control" type="text" name="district" id="district" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="detail">Address Detail</label>
+                            <p class="text-muted small">e.g. : Near the store</p>
+                            <textarea name="detail" id="detail" class="form-control" cols="10" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add New Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <div class="container pt-3 pb-5">
@@ -36,14 +91,33 @@ include "./includes.php";
             <div class="card mb-5">
                 <div class="card-body">
                     <h4 class="font-weight-bold">Choose Address</h4>
-                    <div class="form-group">
-                        <label for="address_id">Address Choice</label>
+                    <ul class="list-group mt-4">
+                        <?php foreach($addresses as $address) :?>
+                        <li class="list-group-item mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="address_id"
+                                    value="<?php echo $address['id'];?>">
+                                <label class="form-check-label" for="inlineRadio1">
+                                    <h5 class="font-weight-bold"><?php echo $address['name'];?></h5>
+                                    <p class="text-muted"><?php echo $address['province'];?> -
+                                        <?php echo $address['city'];?> -
+                                        <?php echo $address['district'];?></p>
+                                    <p class="text-muted small"><?php $address['detail'];?></p>
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
 
-                        <select class="form-control" name="address_id" id="address_id">
-                            <option value="">Select Address</option>
-                            <option value="1">Address 1</option>
-                        </select>
-                    </div>
+                    <?php endforeach; ?>
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary w-100 mx-0 mt-4" data-toggle="modal"
+                        data-target="#addressModal">
+                        Add New Adresses
+                    </button>
+
+
 
                 </div>
             </div>
@@ -56,12 +130,6 @@ include "./includes.php";
                         <div class="col-4 col-md-5 col-lg-3">
                             <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                                 <img class="img-fluid" src="assets/img<?php echo $cart['image']; ?>" alt="Sample">
-                                <a href="#!">
-                                    <div class="mask waves-effect waves-light">
-                                        <img class="img-fluid w-100" src="assets/img<?php echo $cart['image']; ?>">
-                                        <div class="mask rgba-black-slight waves-effect waves-light"></div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
                         <div class="col-8 col-md-7 col-lg-9 ">

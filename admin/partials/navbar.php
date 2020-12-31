@@ -28,7 +28,10 @@
 
 
         <ul class="navbar-nav ml-auto">
-
+            <li class="nav-item">
+                <a href="http://localhost/CodeWear/auth/logout.php"
+                    class="nav-link btn btn-danger font-weight-bold btn-sm">Logout</a>
+            </li>
         </ul>
 
 

@@ -6,10 +6,11 @@ include "./includes.php";
 
 <head>
     <?php 
-        $title = "Home Page";
+        $title = "All Products";
         include "./partials/header.php"; 
         require_once "./models/Product.php";
-        $products = Product::getALl();
+        $products = Product::getAll();
+
     ?>
 
     <link rel="stylesheet" href="assets/css/products.css">
@@ -34,7 +35,8 @@ include "./includes.php";
                         class="product-image">
                     <div class="card-body">
                         <h5 class="font-weight-bold mb-3"><?php echo $product['name'];?></h5>
-                        <p class="font-weight-bold orange-text"><?php echo $product['price'];?></p>
+                        <p class="font-weight-bold orange-text">Rp.
+                            <?php echo number_format($product['price'],0,",",".");?></p>
 
                         <a href="product_detail.php?id=<?php echo $product['id'];?>"
                             class="btn elegant-color font-weight-bold w-100 mx-0 text-white">

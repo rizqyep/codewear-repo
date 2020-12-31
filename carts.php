@@ -26,6 +26,8 @@ include "./includes.php";
     ?>
 
     <div class="container pt-3 pb-5">
+
+        <?php if (Cart::count($_SESSION['user']['id']) >0 ) :?>
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
@@ -89,6 +91,19 @@ include "./includes.php";
                 </div>
             </div>
         </div>
+        <?php else : ?>
+        <div class="mt-5"></div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <img src="assets/svg/shop.svg" alt="Shop Illustration" width="300" height="300">
+        </div>
+
+        <h4 class="text-center font-weight-bold mt-3">There are no items on your cart!</h4>
+
+        <div class="d-flex justify-content-center">
+            <a href="products.php" class="mt-3 btn btn-success btn-md">Lets Go Shopping!</a>
+        </div>
+        <?php endif ;?>
     </div>
     <?php
     include "./partials/footer.php";

@@ -33,6 +33,10 @@
             if(Authenticate::isAuthenticated()) :
             
             ?>
+
+            <li class="nav-item">
+                <a href="orders.php" class="nav-link">Orders</a>
+            </li>
             <li class="nav-item">
                 <a href="http://localhost/CodeWear/carts.php" class="nav-link">
                     <span class="icon-holder">
@@ -56,18 +60,19 @@
                     <i class="fas fa-user text-white mr-2"></i><?php echo $_SESSION['user']['name'];?>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="http://localhost/CodeWear/profile.php">Edit Profil</a>
+                    <a class="dropdown-item" href="http://localhost/CodeWear/profile.php">Edit Profile and Address</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="http://localhost/CodeWear/auth/logout.php">Logout</a>
                 </div>
             </li>
             <?php else : ?>
             <li class="nav-item">
-                <a href="/CodeWear/auth/register.php" class="btn btn-md btn-primary font-weight-bold">Register</a>
+                <a href="/CodeWear/auth/register.php"
+                    class="nav-link btn btn-md btn-primary font-weight-bold">Register</a>
             </li>
             <li class="nav-item">
                 <a href="/CodeWear/auth/login.php"
-                    class="btn btn-md elegant-color text-white font-weight-bold">Login</a>
+                    class="nav-link btn btn-md elegant-color text-white font-weight-bold">Login</a>
             </li>
             <?php endif ;?>
         </ul>

@@ -6,7 +6,7 @@ include "./includes.php";
 
 <head>
     <?php 
-        $title = "Home Page";
+        $title = "Product Detail Page";
         include "./partials/header.php"; 
         require_once "./models/Product.php";
         $id = $_GET['id'];
@@ -36,7 +36,9 @@ include "./includes.php";
                     </div>
                     <div class="col-md-6">
                         <h4 class="font-weight-bold"><?php echo $product['name'];?></h4>
-                        <p class="font-weight-bold orange-text">Rp. <?php echo $product['price'];?></p>
+                        <p class="font-weight-bold orange-text">Rp.
+                            <?php echo number_format($product['price'],0,",",".");?></p>
+
                         <p class="mt-3 mb-5 text-muted"><?php echo $product['description'];?></p>
 
                         <?php if(Authenticate::isAuthenticated()) : ?>

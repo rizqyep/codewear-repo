@@ -34,7 +34,7 @@ include "./includes.php";
 
 
                 <div class="d-flex d-md-none justify-content-center">
-                    <a href="products" class="btn elegant-color text-white font-weight-bold">
+                    <a href="products.php" class="btn elegant-color text-white font-weight-bold">
                         Explore Catalog
                     </a>
                 </div>
