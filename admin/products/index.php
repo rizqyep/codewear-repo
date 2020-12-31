@@ -3,8 +3,8 @@ session_start();
 require_once "../../middleware/Authenticate.php";
 require_once "../../middleware/Admin.php";
 
-if(Authenticate::isAuthenticated()){
-    if(!Admin::isAdmin($_SESSION['user'])){
+if (Authenticate::isAuthenticated()) {
+    if (!Admin::isAdmin($_SESSION['user'])) {
         header('Location: http://localhost/CodeWear');
     }
 }
@@ -13,11 +13,11 @@ if(Authenticate::isAuthenticated()){
 <html lang="en">
 
 <head>
-    <?php 
-        $title = "Home Page";
-        include "../partials/header.php"; 
-        require_once "../../models/Product.php";
-        $products = Product::getAll();
+    <?php
+    $title = "Home Page";
+    include "../partials/header.php";
+    require_once "../../models/Product.php";
+    $products = Product::getAll();
     ?>
 
     <link rel="stylesheet" href="http://localhost/CodeWear/assets/css/products.css">
@@ -27,8 +27,8 @@ if(Authenticate::isAuthenticated()){
 <body>
 
     <?php
-        include "../partials/navbar.php";
-     
+    include "../partials/navbar.php";
+
 
     ?>
 
@@ -38,21 +38,21 @@ if(Authenticate::isAuthenticated()){
             <a href="create.php" class="btn btn-sm btn-success">Create Product</a>
         </div>
         <div class="row mt-5 mb-5">
-            <?php foreach($products as $product):?>
+            <?php foreach ($products as $product) : ?>
             <div class="col-6 col-md-3 mb-5">
                 <div class="card rounded">
-                    <img src="http://localhost/CodeWear/assets/img<?php echo $product['image'];?>" alt=""
+                    <img src="http://localhost/CodeWear/assets/img<?php echo $product['image']; ?>" alt=""
                         class="product-image rounded">
                     <div class="card-body">
-                        <h5 class="font-weight-bold mb-3"><?php echo $product['name'];?></h5>
-                        <p class="font-weight-bold orange-text"><?php echo $product['price'];?></p>
+                        <h5 class="font-weight-bold mb-3"><?php echo $product['name']; ?></h5>
+                        <p class="font-weight-bold orange-text"><?php echo $product['price']; ?></p>
 
-                        <a href="edit.php?id=<?php echo $product['id'];?>"
+                        <a href="edit.php?id=<?php echo $product['id']; ?>"
                             class="btn elegant-color font-weight-bold w-100 mx-0 text-white">Edit Product</a>
                     </div>
                 </div>
             </div>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </div>
 
     </div>

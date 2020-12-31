@@ -1,39 +1,42 @@
-<?php 
+<?php
 
 
 include "Database.php";
-class User {
-    
-    public static function getAll(){
+class User
+{
+
+    public static function getAll()
+    {
         global $conn;
         $sql = "SELECT * FROM users";
         $users = $conn->query($sql);
-        
+
         $usersArray = array();
-        while($row = $users->fetch_assoc()){
+        while ($row = $users->fetch_assoc()) {
             array_push($usersArray, $row);
         }
         $conn->close();
         return $usersArray;
     }
 
-    public static function create($user){
+    public static function create($user)
+    {
         global $conn;
-  
+
         $name = $user['name'];
         $email = $user['email'];
         $password = $user['password'];
         $role = 'user';
         $sql = "INSERT INTO users (name, email, password, role) VALUES('$name', '$email', '$password', '$role')";
-        if($conn->query($sql)){
+        if ($conn->query($sql)) {
             return "Success";
-        }
-        else{
+        } else {
             return "Fail";
         }
     }
 
-    public static function getById($id){
+    public static function getById($id)
+    {
         global $conn;
 
         $sql = "SELECT * FROM users WHERE id = '$id'";
@@ -41,5 +44,3 @@ class User {
         return $user;
     }
 }
-
-?>

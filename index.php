@@ -5,10 +5,10 @@ include "./includes.php";
 <html lang="en">
 
 <head>
-    <?php 
-        $title = "Home Page";
-        require_once('./models/Cart.php');
-        include "./partials/header.php"; 
+    <?php
+    $title = "Home Page";
+    require_once('./models/Cart.php');
+    include "./partials/header.php";
     ?>
 
     <link rel="stylesheet" href="assets/css/landing.css">
@@ -18,7 +18,7 @@ include "./includes.php";
 <body>
 
     <?php
-        include "./partials/navbar.php";
+    include "./partials/navbar.php";
     ?>
 
 

@@ -3,40 +3,40 @@ session_start();
 include "../../models/Product.php";
 
 
-function addProduct($data){
-    if(Product::create($data)){
+function addProduct($data)
+{
+    if (Product::create($data)) {
         $_SESSION['flash_success']['message'] = 'Product successfully added!';
         $_SESSION['flash_success']['title'] = 'Success';
         header('Location: http://localhost/CodeWear/admin/products');
-    }
-    else{
+    } else {
         $_SESSION['flash_fail']['message'] = 'Product not added !';
         $_SESSION['flash_fail']['title'] = 'Failed';
         header('Location: http://localhost/CodeWear/admin/products/create.php');
     }
 }
 
-function updateProduct($data){
-   
-    if(Product::update($data)){
+function updateProduct($data)
+{
+
+    if (Product::update($data)) {
         $_SESSION['flash_success']['message'] = 'Product successfully updated!';
         $_SESSION['flash_success']['title'] = 'Success';
         header('Location: http://localhost/CodeWear/admin/products');
-    }
-    else{
+    } else {
         $_SESSION['flash_fail']['message'] = 'Product not updated !';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/admin/products/edit.php?id='.$data['id']);
+        header('Location: http://localhost/CodeWear/admin/products/edit.php?id=' . $data['id']);
     }
 }
 
-if(isset($_POST['create'])){
+if (isset($_POST['create'])) {
 
     $target_dir = "../../assets/img/products/";
     $target_file = $_FILES['image']['name'];
-    $uploaded = move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$target_file);
+    $uploaded = move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir . $target_file);
 
-    $toDbFileName = "/products/".$target_file;
+    $toDbFileName = "/products/" . $target_file;
 
     $data = array(
         'id' => $_POST['id'],
@@ -49,17 +49,17 @@ if(isset($_POST['create'])){
     addProduct($data);
 }
 
-if(isset($_POST['update'])){
+if (isset($_POST['update'])) {
     $file_provided = $_FILES['image']['name'] == '';
-    
-    if($file_provided == false){
-      
+
+    if ($file_provided == false) {
+
         $target_dir = "../../assets/img/products/";
         $target_file = $_FILES['image']['name'];
-        $uploaded = move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$target_file);
+        $uploaded = move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir . $target_file);
 
-        $toDbFileName = "/products/".$target_file;
-    
+        $toDbFileName = "/products/" . $target_file;
+
         $data = array(
             'id' => $_POST['id'],
             'name' => $_POST['name'],
@@ -67,9 +67,7 @@ if(isset($_POST['update'])){
             'description' => $_POST['description'],
             'image' => $toDbFileName
         );
-       
-    }
-    else{
+    } else {
         $data = array(
             'id' => $_POST['id'],
             'name' => $_POST['name'],
@@ -79,5 +77,3 @@ if(isset($_POST['update'])){
     }
     updateProduct($data);
 }
-
-?>

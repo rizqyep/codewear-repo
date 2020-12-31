@@ -1,16 +1,14 @@
 <?php
-class Authenticate {
+class Authenticate
+{
 
-    public static function isAuthenticated(){
-    
-        if(isset($_SESSION['user'])){
+    public static function isAuthenticated()
+    {
+
+        if (isset($_SESSION['user'])) {
             return True;
-        }
-        else{
+        } else {
             return False;
         }
     }
-
 }
-
-?>

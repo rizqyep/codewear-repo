@@ -3,8 +3,8 @@ session_start();
 require_once "../../middleware/Authenticate.php";
 require_once "../../middleware/Admin.php";
 
-if(Authenticate::isAuthenticated()){
-    if(!Admin::isAdmin($_SESSION['user'])){
+if (Authenticate::isAuthenticated()) {
+    if (!Admin::isAdmin($_SESSION['user'])) {
         header('Location: http://localhost/CodeWear');
     }
 }
@@ -13,9 +13,9 @@ if(Authenticate::isAuthenticated()){
 <html lang="en">
 
 <head>
-    <?php 
-        $title = "Create Product";
-        include "../partials/header.php"; 
+    <?php
+    $title = "Create Product";
+    include "../partials/header.php";
     ?>
 
     <link rel="stylesheet" href="assets/css/landing.css">
@@ -25,8 +25,8 @@ if(Authenticate::isAuthenticated()){
 <body>
 
     <?php
-        include "../partials/navbar.php";
-        include "../../models/Product.php";
+    include "../partials/navbar.php";
+    include "../../models/Product.php";
 
     ?>
 

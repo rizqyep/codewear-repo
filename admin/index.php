@@ -3,8 +3,8 @@ session_start();
 require_once "../middleware/Authenticate.php";
 require_once "../middleware/Admin.php";
 
-if(Authenticate::isAuthenticated()){
-    if(!Admin::isAdmin($_SESSION['user'])){
+if (Authenticate::isAuthenticated()) {
+    if (!Admin::isAdmin($_SESSION['user'])) {
         header('Location: http://localhost/CodeWear');
     }
 }
@@ -13,9 +13,9 @@ if(Authenticate::isAuthenticated()){
 <html lang="en">
 
 <head>
-    <?php 
-        $title = "Create Product";
-        include "./partials/header.php"; 
+    <?php
+    $title = "Create Product";
+    include "./partials/header.php";
     ?>
 
     <link rel="stylesheet" href="assets/css/landing.css">
@@ -25,17 +25,16 @@ if(Authenticate::isAuthenticated()){
 <body>
 
     <?php
-        include "./partials/navbar.php";
-        include "../models/Product.php";
-        include "../models/Order.php";
+    include "./partials/navbar.php";
+    include "../models/Product.php";
+    include "../models/Order.php";
 
-        $totalSales = Order::countSales()['total'];
+    $totalSales = Order::countSales()['total'];
 
-        $productCount = Product::count();
+    $productCount = Product::count();
     ?>
 
 
-    <?php var_dump($_ENV);?>
     <div class="container pt-3 pb-3">
         <h3 class="font-weight-bold mb-4">Welcome Admin!</h3>
 
@@ -58,7 +57,7 @@ if(Authenticate::isAuthenticated()){
                 <div class="card" style="min-height : 200px;">
                     <div class="card-body">
                         <h3 class="text-center mb-4 text-success font-weight-bold">
-                            Rp.<?php echo number_format($totalSales,0,",","."); ?></h3>
+                            Rp.<?php echo number_format($totalSales, 0, ",", "."); ?></h3>
                         <p class="text-center text-muted">Total Selling</p>
                         <div class="d-flex justify-content-around">
                             <a href="http://localhost/CodeWear/admin/stats/index.php" class="btn mx-0 btn-primary">

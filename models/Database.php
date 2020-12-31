@@ -3,17 +3,15 @@
 date_default_timezone_set("Asia/Jakarta");
 
 $servername = "localhost";
-$username= "root";
+$username = "root";
 $password = "199#mauli";
-$dbname= "codewear";
+$dbname = "codewear";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 //Validate Connection
-if ($conn->connect_error){
-    die("Connection failed : ". $conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed : " . $conn->connect_error);
 }
-
-?>

@@ -5,18 +5,18 @@ include "./includes.php";
 <html lang="en">
 
 <head>
-    <?php 
-        $title = "Checkout Page";
-        include "./partials/header.php"; 
-        
-        $carts = Cart::getAll($_SESSION['user']['id']);
-        $total = 0;
+    <?php
+    $title = "Checkout Page";
+    include "./partials/header.php";
 
-        require_once("./models/Address.php");
-        $addresses = Address::getAll($_SESSION['user']['id']);
+    $carts = Cart::getAll($_SESSION['user']['id']);
+    $total = 0;
+
+    require_once("./models/Address.php");
+    $addresses = Address::getAll($_SESSION['user']['id']);
 
 
-        
+
     ?>
 
     <link rel="stylesheet" href="assets/css/carts.css">
@@ -26,7 +26,7 @@ include "./includes.php";
 <body>
 
     <?php
-        include "./partials/navbar.php";
+    include "./partials/navbar.php";
 
     ?>
 
@@ -92,17 +92,17 @@ include "./includes.php";
                 <div class="card-body">
                     <h4 class="font-weight-bold">Choose Address</h4>
                     <ul class="list-group mt-4">
-                        <?php foreach($addresses as $address) :?>
+                        <?php foreach ($addresses as $address) : ?>
                         <li class="list-group-item mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="address_id"
-                                    value="<?php echo $address['id'];?>">
+                                    value="<?php echo $address['id']; ?>">
                                 <label class="form-check-label" for="inlineRadio1">
-                                    <h5 class="font-weight-bold"><?php echo $address['name'];?></h5>
-                                    <p class="text-muted"><?php echo $address['province'];?> -
-                                        <?php echo $address['city'];?> -
-                                        <?php echo $address['district'];?></p>
-                                    <p class="text-muted small"><?php echo $address['detail'];?></p>
+                                    <h5 class="font-weight-bold"><?php echo $address['name']; ?></h5>
+                                    <p class="text-muted"><?php echo $address['province']; ?> -
+                                        <?php echo $address['city']; ?> -
+                                        <?php echo $address['district']; ?></p>
+                                    <p class="text-muted small"><?php echo $address['detail']; ?></p>
                                 </label>
                             </div>
                         </li>
@@ -125,7 +125,7 @@ include "./includes.php";
             <div class="card">
                 <div class="card-body">
                     <h4 class="font-weight-bold mb-3">Items to Checkout</h4>
-                    <?php foreach($carts as $cart) : ?>
+                    <?php foreach ($carts as $cart) : ?>
                     <div class="row">
                         <div class="col-4 col-md-5 col-lg-3">
                             <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
@@ -136,18 +136,18 @@ include "./includes.php";
                             <div>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h5><?php echo $cart['name'];?></h5>
+                                        <h5><?php echo $cart['name']; ?></h5>
                                     </div>
                                     <p class="font-weight-bold">Rp.
-                                        <?php echo $cart['price'];?></p>
+                                        <?php echo $cart['price']; ?></p>
 
                                 </div>
-                                <a href="carts_delete.php?id=<?php echo $cart['id'];?>"
+                                <a href="carts_delete.php?id=<?php echo $cart['id']; ?>"
                                     class="text-danger small text-uppercase mr-3"><i class="fas fa-trash-alt mr-1"></i>
                                     Remove item </a>
-                                <?php $subtotal = $cart['quantity'] * $cart['price'];?>
+                                <?php $subtotal = $cart['quantity'] * $cart['price']; ?>
 
-                                <p class="orange-text mt-3">Quantity : <?php echo $cart['quantity'];?></p>
+                                <p class="orange-text mt-3">Quantity : <?php echo $cart['quantity']; ?></p>
                                 <p class="text-success">Subtotal : Rp. <?php echo $subtotal ?></p>
 
 
@@ -155,9 +155,9 @@ include "./includes.php";
                         </div>
                     </div>
                     <hr class="mb-4">
-                    <?php 
-                        $total+= $subtotal;
-                        endforeach;?>
+                    <?php
+                        $total += $subtotal;
+                    endforeach; ?>
                 </div>
 
             </div>
