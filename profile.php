@@ -121,7 +121,7 @@ include "./includes.php";
                                 <p class="text-muted"><?php echo $address['province'];?> -
                                     <?php echo $address['city'];?> -
                                     <?php echo $address['district'];?></p>
-                                <p class="text-muted small"><?php $address['detail'];?></p>
+                                <p class="text-muted small"><?php echo $address['detail'];?></p>
                                 <div class="d-flex justify-content-around">
                                     <button type="button"
                                         class="btn btn-success btn-sm font-weight-bold mx-0 w-100 mr-2"

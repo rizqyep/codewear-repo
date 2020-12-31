@@ -27,20 +27,23 @@ if(Authenticate::isAuthenticated()){
     <?php
         include "./partials/navbar.php";
         include "../models/Product.php";
+        include "../models/Order.php";
+
+        $totalSales = Order::countSales()['total'];
 
         $productCount = Product::count();
     ?>
 
 
-
+    <?php var_dump($_ENV);?>
     <div class="container pt-3 pb-3">
-        <h3 class="font-weight-bold">Welcome Admin!</h3>
+        <h3 class="font-weight-bold mb-4">Welcome Admin!</h3>
 
         <div class="row mt-3 mb-5">
 
             <div class="col-6 col-md-4">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="min-height : 200px;">
                         <h1 class="text-center font-weight-bold"><?php echo $productCount; ?></h1>
                         <p class="text-center text-muted">Products</p>
                         <div class="d-flex justify-content-around">
@@ -51,6 +54,21 @@ if(Authenticate::isAuthenticated()){
                     </div>
                 </div>
             </div>
+            <div class="col-6 col-md-4">
+                <div class="card" style="min-height : 200px;">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4 text-success font-weight-bold">
+                            Rp.<?php echo number_format($totalSales,0,",","."); ?></h3>
+                        <p class="text-center text-muted">Total Selling</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="http://localhost/CodeWear/admin/stats/index.php" class="btn mx-0 btn-primary">
+                                See More Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

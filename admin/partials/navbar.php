@@ -20,9 +20,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/CodeWear/admin/products.php">Products</a>
+                <a class="nav-link" href="http://localhost/CodeWear/admin/products">Products</a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/CodeWear/admin/orders">Orders</a>
+            </li>
         </ul>
         <!-- Links -->
 

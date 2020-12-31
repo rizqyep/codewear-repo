@@ -32,6 +32,14 @@ class User {
             return "Fail";
         }
     }
+
+    public static function getById($id){
+        global $conn;
+
+        $sql = "SELECT * FROM users WHERE id = '$id'";
+        $user = $conn->query($sql)->fetch_assoc();
+        return $user;
+    }
 }
 
 ?>

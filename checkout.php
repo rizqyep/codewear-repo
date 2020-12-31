@@ -102,7 +102,7 @@ include "./includes.php";
                                     <p class="text-muted"><?php echo $address['province'];?> -
                                         <?php echo $address['city'];?> -
                                         <?php echo $address['district'];?></p>
-                                    <p class="text-muted small"><?php $address['detail'];?></p>
+                                    <p class="text-muted small"><?php echo $address['detail'];?></p>
                                 </label>
                             </div>
                         </li>
