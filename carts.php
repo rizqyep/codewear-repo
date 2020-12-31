@@ -6,7 +6,7 @@ include "./includes.php";
 
 <head>
     <?php 
-        $title = "Home Page";
+        $title = "Carts";
         include "./partials/header.php"; 
      
         $carts = Cart::getAll($_SESSION['user']['id']);
@@ -82,8 +82,9 @@ include "./includes.php";
                             <h4 class="font-weight-bold text-center mb-3">Total Price</h4>
                             <h5 class="font-weight-bold text-center orange-text mb-3">Rp. <?php echo $total;?></h5>
                         </div>
-                        <button class="btn btn-success font-weight-bold mx-0 my-0 w-100 btn-checkout">Proceed To
-                            Checkout</button>
+                        <a href="checkout.php"
+                            class="btn btn-success font-weight-bold mx-0 my-0 w-100 btn-checkout">Proceed To
+                            Checkout</a>
                     </div>
                 </div>
             </div>
