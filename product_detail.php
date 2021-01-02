@@ -26,8 +26,7 @@ include "./includes.php";
 
     <div class="container pt-3 pb-3">
 
-        public static function delete($user_id, $address_id)
-        {
+
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -45,6 +44,7 @@ include "./includes.php";
                         <p class="mt-3 mb-5 text-muted"><?php echo $product['description']; ?></p>
 
                         <?php if (Authenticate::isAuthenticated()) : ?>
+                        <?php if ($product['stock'] > 0) : ?>
                         <form action="./controllers/CartController.php" method="POST">
                             <input type="hidden" name="create">
                             <input type="hidden" name="item_id" value="<?php echo $product['id']; ?>">
@@ -55,7 +55,12 @@ include "./includes.php";
                             <button class="btn btn-success w-100 mx-0 text-white font-weight-bold">Add To Cart</button>
                         </form>
                         <?php else : ?>
-                        <a href="CodeWear/auth/login.php" class="btn btn-primary w-100 mx-0 font-weight-bold">
+                        <div class="badge badge-md grey text-white pt-3 py-1 w-100">
+                            <p class="font-weight-bold text-center">Product out of stock</p>
+                        </div>
+                        <?php endif; ?>
+                        <?php else : ?>
+                        <a href="auth/login.php" class="btn btn-primary w-100 mx-0 font-weight-bold">
                             Login / Register to buy this item
                         </a>
                         <?php endif; ?>

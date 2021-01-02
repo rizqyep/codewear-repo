@@ -52,6 +52,10 @@ if (Authenticate::isAuthenticated()) {
                         <input type="text" name="price" id="price" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" name="stock" id="stock" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="description">Product Description</label>
                         <textarea class="form-control" name="description" id="description" rows="3"
                             cols="10"></textarea>

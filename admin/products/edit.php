@@ -61,6 +61,11 @@ if (Authenticate::isAuthenticated()) {
                             class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" name="stock" id="stock" class="form-control"
+                            value="<?php echo $product['stock']; ?>">
+                    </div>
+                    <div class="form-group">
                         <label for="description">Product Description</label>
                         <textarea class="form-control" name="description" id="description" rows="3"
                             cols="10"><?php echo $product['description']; ?></textarea>

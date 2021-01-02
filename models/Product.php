@@ -40,8 +40,9 @@ class Product
         $price = $data['price'];
         $description = $data['description'];
         $image = $data['image'];
+        $stock = $data['stock'];
 
-        $sql = "INSERT INTO products (name, price, image, description) VALUES ('$name', '$price', '$image', '$description')";
+        $sql = "INSERT INTO products (name, price, image, description, stock) VALUES ('$name', '$price', '$image', '$description', '$stock')";
         if ($conn->query($sql)) {
             return true;
         } else {
@@ -60,15 +61,17 @@ class Product
             $description = $data['description'];
             $image = $data['image'];
             $id = $data['id'];
+            $stock = $data['stock'];
 
-            $sql = "UPDATE products SET name = '$name', price = '$price', image = '$image', description = '$description' WHERE id = '$id'";
+            $sql = "UPDATE products SET name = '$name', price = '$price', image = '$image', stock = '$stock' , description = '$description' WHERE id = '$id'";
         } else {
             $name = $data['name'];
             $price = $data['price'];
             $description = $data['description'];
             $id = $data['id'];
+            $stock = $data['stock'];
 
-            $sql = "UPDATE products SET name = '$name', price = '$price', description = '$description' WHERE id = '$id'";
+            $sql = "UPDATE products SET name = '$name', price = '$price', stock = '$stock', description = '$description' WHERE id = '$id'";
         }
 
         if ($conn->query($sql)) {

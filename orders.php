@@ -25,6 +25,7 @@ include "./includes.php";
 
 
     <div class="container pt-3 pb-3">
+        <?php if (count($orders) > 0) : ?>
         <h3 class="font-weight-bold">All Your Orders</h3>
         <table class="table">
             <thead>
@@ -39,15 +40,13 @@ include "./includes.php";
             </thead>
             <tbody>
                 <?php
-                $i = 1;
-                foreach ($orders as $order) : ?>
+                    $i = 1;
+                    foreach ($orders as $order) : ?>
                 <tr>
                     <th scope="row">1</th>
                     <td><?php echo $order['created_at']; ?></td>
-                    <?php
-                        $orderTotal = Order::getTotal($order['id'])['total'];
-                        ?>
-                    <td>Rp.<?php echo number_format($orderTotal, 0, ",", "."); ?></td>
+
+                    <td>Rp.<?php echo number_format($order['total'], 0, ",", "."); ?></td>
                     <td><?php echo $order['status']; ?></td>
                     <td>
                         <button type="button" class="btn btn-primary btn-sm mx-0 " data-toggle="modal"
@@ -99,8 +98,8 @@ include "./includes.php";
                                         <?php endforeach; ?>
                                     </ul>
                                     <?php
-                                        require_once "./models/Address.php";
-                                        $address = Address::deliveryAddress($order['address_id']); ?>
+                                            require_once "./models/Address.php";
+                                            $address = Address::deliveryAddress($order['address_id']); ?>
 
                                     <h4 class="font-weight-bold mt-3">Delivery Address</h4>
                                     <li class="list-group-item mb-3">
@@ -124,10 +123,23 @@ include "./includes.php";
 
                 </tr>
                 <?php
-                    $i++;
-                endforeach; ?>
+                        $i++;
+                    endforeach; ?>
             </tbody>
         </table>
+        <?php else : ?>
+        <div class="mt-5"></div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <img src="assets/svg/shop.svg" alt="Shop Illustration" width="300" height="300">
+        </div>
+
+        <h4 class="text-center font-weight-bold mt-3">You haven't ordered anything!</h4>
+
+        <div class="d-flex justify-content-center">
+            <a href="products.php" class="mt-3 btn btn-success btn-md">Lets Go Shopping!</a>
+        </div>
+        <?php endif; ?>
 
     </div>
 

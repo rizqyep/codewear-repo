@@ -43,6 +43,7 @@ if (isset($_POST['create'])) {
         'name' => $_POST['name'],
         'price' => $_POST['price'],
         'description' => $_POST['description'],
+        'stock' => $_POST['stock'],
         'image' => $toDbFileName
     );
 
@@ -65,6 +66,7 @@ if (isset($_POST['update'])) {
             'name' => $_POST['name'],
             'price' => $_POST['price'],
             'description' => $_POST['description'],
+            'stock' => $_POST['stock'],
             'image' => $toDbFileName
         );
     } else {
@@ -72,6 +74,7 @@ if (isset($_POST['update'])) {
             'id' => $_POST['id'],
             'name' => $_POST['name'],
             'price' => $_POST['price'],
+            'stock' => $_POST['stock'],
             'description' => $_POST['description'],
         );
     }

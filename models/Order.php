@@ -9,20 +9,22 @@ class Order
     {
         global $conn;
         $allInserted = true;
-        $order = $conn->query("INSERT INTO orders (user_id, status, address_id) VALUES ('$user_id', 'Issued', '$address_id')");
+        $order = $conn->query("INSERT INTO orders (user_id, status, address_id, total) VALUES ('$user_id', 'Issued', '$address_id', 0)");
         $order_id = $conn->insert_id;
 
         $cartItems = $conn->query("SELECT * FROM carts JOIN products on item_id = products.id WHERE user_id = '$user_id'");
-
+        $total = 0;
         while ($cartItem = $cartItems->fetch_assoc()) {
             $subtotal = $cartItem['quantity'] * $cartItem['price'];
             if (!$conn->query("INSERT INTO order_item (order_id, item_id, quantity, subtotal) VALUES ('$order_id', '$cartItem[item_id]', '$cartItem[quantity]', '$subtotal')")) {
                 $allInserted = false;
             }
+            $total += $subtotal;
         }
 
         if ($allInserted) {
             $conn->query("DELETE FROM carts WHERE user_id = '$user_id'");
+            $conn->query("UPDATE orders SET total = '$total' WHERE id = '$order_id'");
             return $allInserted;
         } else {
             return false;

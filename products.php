@@ -27,8 +27,7 @@ include "./includes.php";
 
     <div class="container pt-3 pb-3">
 
-        public static function delete($user_id, $address_id)
-        {
+
         <h3 class="font-weight-bold">All Products</h3>
         <div class="row mt-5 mb-5">
             <?php foreach ($products as $product) : ?>
