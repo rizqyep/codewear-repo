@@ -57,7 +57,7 @@ if (Authenticate::isAuthenticated()) {
                     $i = 1;
                     foreach ($orders as $order) : ?>
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><?php echo $i; ?></th>
                         <td><?php echo User::getById($order['user_id'])['name']; ?></td>
 
                         <td><?php echo $order['created_at']; ?></td>
