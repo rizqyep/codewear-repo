@@ -7,6 +7,8 @@ if (Authenticate::isAuthenticated()) {
     if (!Admin::isAdmin($_SESSION['user'])) {
         header('Location: http://localhost/CodeWear');
     }
+} else {
+    header('Location: http://localhost/CodeWear');
 }
 
 $order_id = $_GET['id'];

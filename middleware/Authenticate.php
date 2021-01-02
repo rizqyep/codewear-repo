@@ -6,9 +6,9 @@ class Authenticate
     {
 
         if (isset($_SESSION['user'])) {
-            return True;
+            return true;
         } else {
-            return False;
+            return false;
         }
     }
 }

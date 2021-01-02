@@ -19,6 +19,10 @@ class Order
             if (!$conn->query("INSERT INTO order_item (order_id, item_id, quantity, subtotal) VALUES ('$order_id', '$cartItem[item_id]', '$cartItem[quantity]', '$subtotal')")) {
                 $allInserted = false;
             }
+            $product = $conn->query("SELECT * FROM products where id = '$cartItem[item_id]'")->fetch_assoc();
+            $currentQuantity = $product['stock'];
+            $currentQuantity = $product['stock'] - $cartItem['quantity'];
+            $conn->query("UPDATE products set stock = '$currentQuantity' WHERE id = '$product[id]'");
             $total += $subtotal;
         }
 

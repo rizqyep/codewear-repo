@@ -6,9 +6,9 @@ class Admin
     public static function isAdmin($user)
     {
         if ($user['role'] == 'admin') {
-            return True;
+            return true;
         } else {
-            return False;
+            return false;
         }
     }
 }

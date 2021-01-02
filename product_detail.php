@@ -40,7 +40,8 @@ include "./includes.php";
                         <h4 class="font-weight-bold"><?php echo $product['name']; ?></h4>
                         <p class="font-weight-bold orange-text">Rp.
                             <?php echo number_format($product['price'], 0, ",", "."); ?></p>
-
+                        <p class="font-weight-bold orange-text">Available Stock : <?php echo $product['stock']; ?> pcs
+                        </p>
                         <p class="mt-3 mb-5 text-muted"><?php echo $product['description']; ?></p>
 
                         <?php if (Authenticate::isAuthenticated()) : ?>

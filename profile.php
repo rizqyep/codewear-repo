@@ -1,5 +1,8 @@
 <?php
 include "./includes.php";
+if (Authenticate::isAuthenticated() == false) {
+    header('Location: http://localhost/CodeWear');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

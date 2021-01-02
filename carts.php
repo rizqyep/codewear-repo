@@ -1,5 +1,8 @@
 <?php
 include "./includes.php";
+if (Authenticate::isAuthenticated() == false) {
+    header('Location: http://localhost/CodeWear');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +36,9 @@ include "./includes.php";
                 <div class="card">
                     <div class="card-body">
                         <h4 class="font-weight-bold mb-3">Items in your cart</h4>
-                        <?php foreach ($carts as $cart) : ?>
+                        <?php
+                            $i = 0;
+                            foreach ($carts as $cart) : ?>
                         <div class="row">
                             <div class="col-4 col-md-5 col-lg-3">
                                 <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
@@ -65,12 +70,59 @@ include "./includes.php";
                                     <p class="orange-text mt-3">Quantity : <?php echo $cart['quantity']; ?></p>
                                     <p class="text-success">Subtotal : Rp. <?php echo $subtotal ?></p>
 
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary btn-sm mx-0" data-toggle="modal"
+                                        data-target="#cartItemModal<?php echo $i; ?>">
+                                        Edit Quantity
+                                    </button>
+
+
+                                    <!-- Address Modal -->
+                                    <div class="modal fade" id="cartItemModal<?php echo $i; ?>" tabindex="-1"
+                                        role="dialog" aria-labelledby="cartItemModal<?php echo $i; ?>Label"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header elegant-color text-white">
+                                                    <h5 class="modal-title font-weight-bold"
+                                                        id="cartItemModal<?php echo $i; ?>Label">Edit
+                                                        Item Quantity</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true" class="text-white">&times;</span>
+                                                    </button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="createOnCheckout">
+                                                    <div class="form-group">
+                                                        <label class="font-weight-bold" for="quantity">Quantity</label>
+                                                        <p class="small text-muted">Edit Current Cart Item Quantity
+                                                        </p>
+                                                        <input class="form-control" type="number" name="quantity"
+                                                            id="quantity" value="<?php echo $cart['quantity']; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-primary">Add New
+                                                        Address</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
 
                                 </div>
                             </div>
                         </div>
                         <hr class="mb-4">
                         <?php
+                                $i++;
                                 $total += $subtotal;
                             endforeach; ?>
                     </div>
