@@ -11,11 +11,11 @@ function createOrder($user_id, $address_id)
     if (Order::create($user_id, $address_id)) {
         $_SESSION['flash_success']['message'] = 'Order successfully issued!';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/orders.php');
+        header('Location: /codewear/orders.php');
     } else {
         $_SESSION['flash_fail']['message'] = 'Order not issued!';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/checkout.php');
+        header('Location: /codewear/checkout.php');
     }
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST['create'])) {
     if ($_POST['address_id'] == '') {
         $_SESSION['flash_fail']['message'] = 'Please choose your address!';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/checkout.php');
+        header('Location: /codewear/checkout.php');
     } else {
         createOrder($_SESSION['user']['id'], $_POST['address_id']);
     }

@@ -8,11 +8,11 @@ function addProduct($data)
     if (Product::create($data)) {
         $_SESSION['flash_success']['message'] = 'Product successfully added!';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/admin/products');
+        header('Location: /codewear/admin/products');
     } else {
         $_SESSION['flash_fail']['message'] = 'Product not added !';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/admin/products/create.php');
+        header('Location: /codewear/admin/products/create.php');
     }
 }
 
@@ -22,11 +22,11 @@ function updateProduct($data)
     if (Product::update($data)) {
         $_SESSION['flash_success']['message'] = 'Product successfully updated!';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/admin/products');
+        header('Location: /codewear/admin/products');
     } else {
         $_SESSION['flash_fail']['message'] = 'Product not updated !';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/admin/products/edit.php?id=' . $data['id']);
+        header('Location: /codewear/admin/products/edit.php?id=' . $data['id']);
     }
 }
 

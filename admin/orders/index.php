@@ -5,10 +5,10 @@ require_once "../../middleware/Admin.php";
 
 if (Authenticate::isAuthenticated()) {
     if (!Admin::isAdmin($_SESSION['user'])) {
-        header('Location: http://localhost/CodeWear');
+        header('Location: /codewear');
     }
 } else {
-    header('Location: http://localhost/CodeWear');
+    header('Location: /codewear');
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if (Authenticate::isAuthenticated()) {
     $orders = Order::getAllOrders();
     ?>
 
-    <link rel="stylesheet" href="http://localhost/CodeWear/assets/css/orders.css">
+    <link rel="stylesheet" href="/codewear/assets/css/orders.css">
 
 </head>
 

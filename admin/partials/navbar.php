@@ -16,15 +16,15 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/CodeWear/admin">Home
+                <a class="nav-link" href="admin">Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/CodeWear/admin/products">Products</a>
+                <a class="nav-link" href="products">Products</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/CodeWear/admin/orders">Orders</a>
+                <a class="nav-link" href="orders">Orders</a>
             </li>
         </ul>
         <!-- Links -->
@@ -32,8 +32,7 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="http://localhost/CodeWear/auth/logout.php"
-                    class="nav-link btn btn-danger font-weight-bold btn-sm">Logout</a>
+                <a href="/codewear/auth/logout.php" class="nav-link btn btn-danger font-weight-bold btn-sm">Logout</a>
             </li>
         </ul>
 

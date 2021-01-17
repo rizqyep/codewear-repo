@@ -12,12 +12,12 @@ function addToCart($item_id, $quantity){
     if(Cart::add($cartData)){
         $_SESSION['flash_success']['message'] = 'Product added to cart!';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        header('Location: /codewear/product_detail.php?id='.$item_id);
     }
     else{
         $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        header('Location: /codewear/product_detail.php?id='.$item_id);
     }
 }
 
@@ -33,13 +33,13 @@ function updateCart($item_id, $quantity){
     if(Cart::update($cartData)){
         $_SESSION['flash_success']['message'] = 'Product added to cart!';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        header('Location: /codewear/product_detail.php?id='.$item_id);
     }
     else{
      
         $_SESSION['flash_fail']['message'] = 'Product not added to cart!';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        header('Location: /codewear/product_detail.php?id='.$item_id);
      }
 }
 
@@ -48,7 +48,7 @@ if(isset($_POST['create'])){
     if($_POST['quantity'] <1 || $_POST['quantity'] == ''){
         $_SESSION['flash_fail']['message'] = 'Cannot add empty quantity!';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/product_detail.php?id='.$item_id);
+        header('Location: /codewear/product_detail.php?id='.$item_id);
   
     }
 

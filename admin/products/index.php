@@ -5,10 +5,10 @@ require_once "../../middleware/Admin.php";
 
 if (Authenticate::isAuthenticated()) {
     if (!Admin::isAdmin($_SESSION['user'])) {
-        header('Location: http://localhost/CodeWear');
+        header('Location: /codewear');
     }
 } else {
-    header('Location: http://localhost/CodeWear');
+    header('Location: /codewear');
 }
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ if (Authenticate::isAuthenticated()) {
     $products = Product::getAll();
     ?>
 
-    <link rel="stylesheet" href="http://localhost/CodeWear/assets/css/products.css">
+    <link rel="stylesheet" href="/codewear/assets/css/products.css">
 
 </head>
 
@@ -43,7 +43,7 @@ if (Authenticate::isAuthenticated()) {
             <?php foreach ($products as $product) : ?>
             <div class="col-6 col-md-3 mb-5">
                 <div class="card rounded">
-                    <img src="http://localhost/CodeWear/assets/img<?php echo $product['image']; ?>" alt=""
+                    <img src="/codewear/assets/img<?php echo $product['image']; ?>" alt=""
                         class="product-image rounded">
                     <div class="card-body">
                         <h5 class="font-weight-bold mb-3"><?php echo $product['name']; ?></h5>

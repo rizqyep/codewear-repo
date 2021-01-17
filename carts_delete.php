@@ -10,9 +10,9 @@ $cart_id = $_GET['id'];
 if (Cart::delete($user_id, $cart_id)) {
     $_SESSION['flash_success']['message'] = 'Product deleted from cart!';
     $_SESSION['flash_success']['title'] = 'Success';
-    header('Location: http://localhost/CodeWear/carts.php');
+    header('Location: /codewear/carts.php');
 } else {
     $_SESSION['flash_fail']['message'] = 'Product not deleted from cart!';
     $_SESSION['flash_fail']['title'] = 'Failed';
-    header('Location: http://localhost/CodeWear/carts.php');
+    header('Location: /codewear/carts.php');
 }

@@ -1,7 +1,7 @@
 <?php
 include "./includes.php";
 if (Authenticate::isAuthenticated() == false) {
-    header('Location: http://localhost/CodeWear');
+    header('Location: /codewear');
 }
 ?>
 <!DOCTYPE html>
@@ -46,7 +46,7 @@ if (Authenticate::isAuthenticated() == false) {
                     $i = 1;
                     foreach ($orders as $order) : ?>
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"><?php echo $i;?></th>
                     <td><?php echo $order['created_at']; ?></td>
 
                     <td>Rp.<?php echo number_format($order['total'], 0, ",", "."); ?></td>

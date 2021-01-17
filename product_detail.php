@@ -32,8 +32,8 @@ include "./includes.php";
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="d-flex justify-content-center">
-                            <img class="product-image"
-                                src="http://localhost/CodeWear/assets/img<?php echo $product['image']; ?>" alt="">
+                            <img class="product-image" src="/codewear/assets/img<?php echo $product['image']; ?>"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-md-6">

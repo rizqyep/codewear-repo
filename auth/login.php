@@ -5,10 +5,10 @@ require_once "../middleware/Admin.php";
     if(Authenticate::isAuthenticated()){
         if(Admin::isAdmin($_SESSION['user'])){
          
-            header('Location: http://localhost/CodeWear/admin');
+            header('Location: /codewear/admin');
         }
         else{
-            header('Location: http://localhost/CodeWear');
+            header('Location: /codewear');
         }
     }
 ?>

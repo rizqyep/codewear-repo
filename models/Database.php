@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Jakarta");
 
 $servername = "localhost";
 $username = "root";
-$password = "199#mauli";
+$password = "";
 $dbname = "codewear";
 
 

@@ -18,12 +18,12 @@ function createAddressOnCheckout($data){
     if(Address::create($addressData)){
         $_SESSION['flash_success']['message'] = 'Address has been added !';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/checkout.php');
+        header('Location: /codewear/checkout.php');
     }
     else{
         $_SESSION['flash_fail']['message'] = 'Address has not been added';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/checkout.php');
+        header('Location: /codewear/checkout.php');
     }
 }
 
@@ -42,12 +42,12 @@ function createAddress($data){
     if(Address::create($addressData)){
         $_SESSION['flash_success']['message'] = 'Address has been added !';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/profile.php');
+        header('Location: /codewear/profile.php');
     }
     else{
         $_SESSION['flash_fail']['message'] = 'Address has not been added';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/profile.php');
+        header('Location: /codewear/profile.php');
     }
 }
 
@@ -67,12 +67,12 @@ function updateAddress($data){
     if(Address::update($addressData)){
         $_SESSION['flash_success']['message'] = 'Address has been Edited !';
         $_SESSION['flash_success']['title'] = 'Success';
-        header('Location: http://localhost/CodeWear/profile.php');
+        header('Location: /codewear/profile.php');
     }
     else{
         $_SESSION['flash_fail']['message'] = 'Address has not been Edited';
         $_SESSION['flash_fail']['title'] = 'Failed';
-        header('Location: http://localhost/CodeWear/profile.php');
+        header('Location: /codewear/profile.php');
     }
     
 }

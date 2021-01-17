@@ -1,7 +1,7 @@
 <?php
 include "./includes.php";
 if (Authenticate::isAuthenticated() == false) {
-    header('Location: http://localhost/CodeWear');
+    header('Location: /codewear');
 }
 ?>
 <!DOCTYPE html>

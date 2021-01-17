@@ -38,7 +38,7 @@ class Order
     public static function getAll($user_id)
     {
         global $conn;
-        $sql = "SELECT * FROM orders WHERE user_id = '$user_id'";
+        $sql = "SELECT * FROM orders WHERE user_id = '$user_id' ORDER BY created_at DESC";
         $ordersArray = array();
         $orders = $conn->query($sql);
 

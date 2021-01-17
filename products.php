@@ -33,8 +33,7 @@ include "./includes.php";
             <?php foreach ($products as $product) : ?>
             <div class="col-6 col-md-3">
                 <div class="card">
-                    <img src="http://localhost/CodeWear/assets/img<?php echo $product['image']; ?>" alt=""
-                        class="product-image">
+                    <img src="/codewear/assets/img<?php echo $product['image']; ?>" alt="" class="product-image">
                     <div class="card-body">
                         <h5 class="font-weight-bold mb-3"><?php echo $product['name']; ?></h5>
                         <p class="font-weight-bold orange-text">Rp.

@@ -11,17 +11,17 @@ function authenticate($request){
             $_SESSION['user'] = $user;
             $logged_in = true;
             if(Admin::isAdmin($_SESSION['user'])){
-                header('Location: http://localhost/CodeWear/admin');
+                header('Location: /codewear/admin');
             }
             else{
-                header('Location: http://localhost/CodeWear');
+                header('Location: /codewear');
             }
         }
     }
     if($logged_in == false){
         $_SESSION['flash_fail']['title'] = "Log-in Failed!";
         $_SESSION['flash_fail']['message'] = "Invalid credentials provided"; 
-        header('Location: http://localhost/CodeWear/auth/login.php');
+        header('Location: /codewear/auth/login.php');
     }
 }
 

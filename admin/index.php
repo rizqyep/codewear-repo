@@ -5,10 +5,10 @@ require_once "../middleware/Admin.php";
 
 if (Authenticate::isAuthenticated()) {
     if (!Admin::isAdmin($_SESSION['user'])) {
-        header('Location: http://localhost/CodeWear');
+        header('Location: /codewear');
     }
 } else {
-    header('Location: http://localhost/CodeWear');
+    header('Location: /codewear');
 }
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ if (Authenticate::isAuthenticated()) {
                         <h1 class="text-center font-weight-bold"><?php echo $productCount; ?></h1>
                         <p class="text-center text-muted">Products</p>
                         <div class="d-flex justify-content-around">
-                            <a href="http://localhost/CodeWear/admin/products/index.php" class="btn mx-0 btn-primary">
+                            <a href="/codewear/admin/products/index.php" class="btn mx-0 btn-primary">
                                 See Product
                             </a>
                         </div>
@@ -62,7 +62,7 @@ if (Authenticate::isAuthenticated()) {
                             Rp.<?php echo number_format($totalSales, 0, ",", "."); ?></h3>
                         <p class="text-center text-muted">Total Selling</p>
                         <div class="d-flex justify-content-around">
-                            <a href="http://localhost/CodeWear/admin/stats/index.php" class="btn mx-0 btn-primary">
+                            <a href="/codewear/admin/stats/index.php" class="btn mx-0 btn-primary">
                                 See More Data
                             </a>
                         </div>
