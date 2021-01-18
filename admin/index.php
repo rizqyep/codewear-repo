@@ -62,7 +62,7 @@ if (Authenticate::isAuthenticated()) {
                             Rp.<?php echo number_format($totalSales, 0, ",", "."); ?></h3>
                         <p class="text-center text-muted">Total Selling</p>
                         <div class="d-flex justify-content-around">
-                            <a href="/codewear/admin/stats/index.php" class="btn mx-0 btn-primary">
+                            <a href="/codewear/admin/orders" class="btn mx-0 btn-primary">
                                 See More Data
                             </a>
                         </div>
