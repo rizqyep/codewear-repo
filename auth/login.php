@@ -40,7 +40,7 @@ require_once "../middleware/Admin.php";
                         <input type="password" name="password" class="form-control" id="password">
                     </div>
                     <div class="d-flex justify-content-end">
-                        <p>Not registered yet ? <a href="/CodeWear/auth/register.php">Register here</a></p>
+                        <p>Not registered yet ? <a href="/codewear/auth/register.php">Register here</a></p>
                     </div>
                     <button class="btn elegant-color text-white font-weight-bold w-100 mx-0"
                         type="submit">Login</button>
