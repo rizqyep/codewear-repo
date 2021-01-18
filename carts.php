@@ -106,8 +106,8 @@ if (Authenticate::isAuthenticated() == false) {
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal">Cancel</button>
-                                                    <button type="submit" class="btn btn-primary">Add New
-                                                        Address</button>
+                                                    <button type="submit" class="btn btn-primary">Update
+                                                        Quantity</button>
                                                 </div>
 
                                             </div>
