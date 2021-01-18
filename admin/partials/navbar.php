@@ -16,15 +16,15 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="admin">Home
+                <a class="nav-link" href="/codewear/admin/">Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="products">Products</a>
+                <a class="nav-link" href="/codewear/admin/products">Products</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="orders">Orders</a>
+                <a class="nav-link" href="/codewear/admin/orders">Orders</a>
             </li>
         </ul>
         <!-- Links -->
